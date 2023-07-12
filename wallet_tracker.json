@@ -1,0 +1,88 @@
+{
+  "version": "0.1.0",
+  "name": "wallet_tracker",
+  "instructions": [
+    {
+      "name": "initialize",
+      "accounts": [
+        {
+          "name": "record",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "identifier",
+          "type": "publicKey"
+        },
+        {
+          "name": "entries",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "close",
+      "accounts": [
+        {
+          "name": "record",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Record",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": "publicKey"
+          },
+          {
+            "name": "identifier",
+            "type": "publicKey"
+          },
+          {
+            "name": "entries",
+            "type": "u8"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "UnableToFindBump",
+      "msg": "Unable to find bump."
+    }
+  ],
+  "metadata": {
+    "address": "TRCKTiWtWCzCopm4mnR47n4v2vEvjRQ1q6rsDxRUbVR"
+  }
+}
